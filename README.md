@@ -11,7 +11,7 @@ To get started with Web Diary, follow these steps:
 3. Create a superuser: `python manage.py createsuperuser`
 4. Run the development server: `python manage.py runserver`
 
-You can then access the web diary at http://localhost:8000/.
+You can then access the web diary at http://127.0.0.1:8000/.
 
 ## Features
 
