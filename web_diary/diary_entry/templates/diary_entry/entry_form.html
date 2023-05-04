@@ -27,7 +27,12 @@
                         <a href="{% url 'home' %}" class="block pl-3 pr-4 hover:text-[#1aa9b1] rounded  text-gray-900">Home</a>
                     </li>
                     <li>
-                        <a href="#" class="block pl-3 pr-4 py-1 text-white border-2 border-red-500 hover:bg-red-600 rounded-lg bg-red-500 hover:border-red-600 flex items-center">Delete Entry</a>
+                        <a href="{% url 'logout' %}" class="block pl-3 pr-4 hover:text-[#1aa9b1] rounded text-gray-900">Logout</a>
+                    </li>
+                    <li>
+                        <a href="#"
+                            class="block pl-3 pr-4 py-1 text-white border-2 border-red-500 hover:bg-red-600 rounded-lg bg-red-500 hover:border-red-600 flex items-center"
+                            onclick="showWarning()">Delete Entry</a>
                     </li>
                 </ul>
 
@@ -79,6 +84,40 @@
             <span class="">@ 2023 Copyright: JournalEase.com</span>
         </div>
     </footer>
+    <div id="warning" class="hidden  fixed top-16 left-[82rem]  justify-center items-center w-full md:h-full">
+        <div class="relative  p-4 w-full max-w-md h-full md:h-auto">
+            <div class="relative shadow p-4 text-center bg-white rounded-lg  sm:p-5">
+                <button onclick="hideWarning()" type="button" class="text-gray-400 absolute top-2.5 right-2.5 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center ">
+                    <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                </button>
+                <img  src="{% static 'images/delete.svg' %}" class="text-gray-400 dark:text-gray-500 w-11 h-11 mb-3.5 mx-auto" alt="">
+                <p class="mb-4 text-gray-500 dark:text-gray-300">Are you sure you want to delete the account?</p>
+                <div class="flex justify-center items-center space-x-4">
+                    <button onclick="hideWarning()"  type="button" class="py-2 px-3 text-sm font-medium text-gray-500 bg-white rounded-lg border border-gray-200 hover:bg-gray-100  hover:text-gray-900 ">
+                        No, cancel
+                    </button>
+                    <button onclick="deleteItem()" type="submit" class="py-2 px-3 text-sm font-medium text-center text-white border-red-500  hover:bg-red-600 rounded-lg bg-red-500 hover:border-red-600">
+                        Yes, I'm sure
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showWarning() {
+            document.getElementById('warning').classList.remove('hidden');
+        }
+        function deleteItem() {
+
+            hideWarning();
+        }
+
+        function hideWarning() {
+            document.getElementById('warning').classList.add('hidden');
+        }
+
+    </script>
     <script>
         var date = new Date();
         var current_date = date.getDate() + "-" + (date.getMonth() + 1) + "-" + (date.getFullYear());
