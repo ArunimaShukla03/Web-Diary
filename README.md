@@ -7,9 +7,8 @@ JournalEase is a web application for keeping a personal diary online. It allows 
 To get started with Web Diary, follow these steps:
 
 1. Clone the repository: `git clone https://github.com/your-username/web-diary.git`
-2. Install the required packages: `pip install -r requirements.txt`
-3. Create a superuser: `python manage.py createsuperuser`
-4. Run the development server: `python manage.py runserver`
+2. Create a superuser: `python manage.py createsuperuser`
+3. Run the development server: `python manage.py runserver`
 
 You can then access the web diary at http://127.0.0.1:8000/.
 
