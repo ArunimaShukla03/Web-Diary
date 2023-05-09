@@ -12,9 +12,9 @@ from django.contrib.auth.decorators import login_required
 
 @login_required(login_url='login')
 # we cannot access the home page unless we have logged in otherwise we will be directed back to the login page.
-def home(request): 
+def home(request):
 
-    entries = Entry.objects.all()
+    entries = Entry.objects.filter(user=request.user)
 
     total_entries = entries.count()
 
@@ -27,7 +27,7 @@ def home(request):
 
 @login_required(login_url='login')
 def entry(request):
-    form = EntryForm
+    form = EntryForm()
 
     if request.method == 'POST':
         form = EntryForm(request.POST)

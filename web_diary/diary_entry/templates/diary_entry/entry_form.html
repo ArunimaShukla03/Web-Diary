@@ -41,42 +41,31 @@
         </div>
     </nav>
     <section class="bg-white sm:w-[90%] sm:mx-[5%] xl:w-[65%] xl:mx-[17.5%]  mt-16  mx-2">
-        <form action=" " class="border-4 shadow-xl rounded border-spacing-9  border-stone-100" method="POST">
+        <form action="{% url 'entry' %}" class="border-4 shadow-xl rounded border-spacing-9  border-stone-100" method="POST">
             {% csrf_token %}
-            <div class="w-auto   border-b ">
-                    {{ form.title }}
+            <div class="w-auto border-b">
+                {{ form.title }}
             </div>
-            <div class="">
-                <div class="w-auto   border-b ">
-                        {{ form.mood }}
-                    </div>
-                </div>
-                <div class="w-auto h-[4rem] border-b flex">
-
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" class="m-4 text-3xl self-center"
-                        fill="currentColor" class="bi bi-calendar2" viewBox="0 0 16 16">
-                        <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM2 2a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H2z" />
-                        <path d="M2.5 4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5V4z" />
-                    </svg>
-                    <span class="self-center text-gray-900 " id="date">Sun. 17/04/2023 </span>
-
-                </div>
-                <div class="">
-                    <div name="textArea" autofocus id="textArea"></textarea>
-
-                        {{ form.content }}
-        
-                    </div>
-                </div>
-
-        <!--<div class="flex flex-row  justify-end">
-        <button type="submit" class="text-white absolute mt-6 px-14 right-[18.3rem] bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300  shadow-lg shadow-blue-500/50 font-medium rounded-lg text  py-2.5 text-center mr-2 mb-2 ">Save</button>-->
-        
-                <div class="clearfix">
-                <button type="submit" class="float-right ml-2 text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 shadow-lg shadow-blue-500/50 font-medium rounded-lg text py-2.5 text-center mr-2 mb-2 px-14" style="margin-top: 1rem;">Save</button>
-                </div>
+            <div class="w-auto border-b">
+                {{ form.mood }}
+            </div>
+            <div class="w-auto h-[4rem] border-b flex">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" class="m-4 text-3xl self-center"
+                    fill="currentColor" class="bi bi-calendar2" viewBox="0 0 16 16">
+                    <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM2 2a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H2z" />
+                    <path d="M2.5 4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5V4z" />
+                </svg>
+                <span class="self-center text-gray-900" id="date">Sun. 17/04/2023 </span>
+            </div>
+            <div name="textArea" autofocus id="textArea">
+                {{ form.content }}
+            </div>
+            <div class="clearfix">
+                <button type="submit"
+                    class="float-right ml-2 text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 shadow-lg shadow-blue-500/50 font-medium rounded-lg text py-2.5 text-center mr-2 mb-2 px-14"
+                    style="margin-top: 1rem;">Save</button>
+            </div>
         </form>
-    </div>
     </section>
 
     <footer class="mt-36">
