@@ -15,7 +15,7 @@ class EntryForm(ModelForm):
 
     class Meta:
         model = Entry
-        fields = '__all__'
+        fields = ['title','mood','content']
 
 class CreateUserForm(UserCreationForm):
 

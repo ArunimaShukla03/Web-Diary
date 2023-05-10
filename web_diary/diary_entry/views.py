@@ -32,8 +32,15 @@ def entry(request):
     if request.method == 'POST':
         form = EntryForm(request.POST)
 
+        #if we have a model "entry" then each instance of the model represents each individual entry in the database.
+
         if form.is_valid():
-            form.save()
+
+            entry = form.save(commit=False) # this will create a new instance of the model which will have the data submitted to form but it doesn't save it to the database just yet.
+
+            entry.user = request.user # this sets the "user" attribute in the "Entry" model to the current user who submitted the form.
+            
+            entry.save()
             return redirect('/')
 
     context = {'form':form}
